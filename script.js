@@ -7,3 +7,4 @@ function newQuotes() {
 newQuotes();
 
 // API fetching of Quotes
+let apiQuotes = [];
