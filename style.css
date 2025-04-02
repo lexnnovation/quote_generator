@@ -1,4 +1,4 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Barriecito&family=Space+Grotesk:wght@300..700&display=swap");
 html {
   box-sizing: border-box;
 }
@@ -6,4 +6,115 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  /* background-color: #9e5c2a;
+  opacity: 1;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #9e5c2a 11px
+    ),
+    repeating-linear-gradient(#f7d04555, #f7d045); */
+
+  background-color: #9e5c2a;
+  opacity: 1;
+  background-image: radial-gradient(circle at center center, #f7d045, #9e5c2a),
+    repeating-radial-gradient(
+      circle at center center,
+      #f7d045,
+      #f7d045,
+      11px,
+      transparent 22px,
+      transparent 11px
+    );
+  background-blend-mode: multiply;
+
+  font-family: "Space Grotesk", sans-serif;
+  color: #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-container {
+  width: auto;
+  max-width: 900px;
+  padding: 30px 40px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: -10px 29px 76px -17px rgba(0, 0, 0, 0.69);
+  -webkit-box-shadow: -10px 29px 76px -17px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: -10px 29px 76px -17px rgba(0, 0, 0, 0.69);
+}
+
+.quote-text {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+.long-text {
+  font-size: 3rem;
+}
+
+.fa-quote-left {
+  font-size: 7rem;
+}
+
+.quote-author {
+  margin-top: 15px;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  height: 2.5rem;
+  border: none;
+  color: #fff;
+  background: #9e5c2a;
+  padding: 0.6rem 2rem;
+  outline: none;
+  box-shadow: 0 0.3rem rgba(121, 121, 121, 0.6);
+}
+button:hover {
+  filter: brightness(120%);
+}
+
+button:active {
+  transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgba(121, 121, 121, 0.6);
+}
+
+.x-twitter-button:hover {
+  background: #000;
+}
+
+.fa-x-twitter {
+  font-size: 1.5rem;
+}
+
+/* Media Querry Tablet or Phone */
+@media screen and (max-width: 1000px) {
+  .quote-container {
+    margin: auto 10px;
+  }
+  .quote-text {
+    font-size: 2rem;
+  }
+  .quote-author {
+    font-size: 1.3rem;
+  }
+
+  .fa-quote-left {
+    font-size: 4rem;
+  }
 }
