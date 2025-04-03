@@ -40,5 +40,14 @@ async function getQuotes() {
   } catch (error) {}
 }
 
+// Button Click Events
+function tweetQuote() {
+  const xTwitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(xTwitterUrl, "_blank");
+}
+
+xTwitterButton.addEventListener("click", tweetQuote);
+newQuoteButton.addEventListener("click", newQuotes);
+
 // Call function
 getQuotes();
