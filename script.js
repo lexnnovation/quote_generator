@@ -1,10 +1,44 @@
-// Local Fetching of Quotes
-function newQuotes() {
-  const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
-  console.log(quote);
-}
+// // Local Fetching of Quotes
+// function newQuotesLocal() {
+//   const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
+//   console.log(quote);
+// }
 
-newQuotes();
+// newQuotesLocal();
+
+// DOM Elements
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const authorText = document.getElementById("author");
+const xTwitterButton = document.getElementById("x-twitter");
+const newQuoteButton = document.getElementById("new-quote");
 
 // API fetching of Quotes
 let apiQuotes = [];
+
+function newQuotes() {
+  const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
+  !quote.author
+    ? (authorText.textContent = "Unknown")
+    : (authorText.textContent = quote.author);
+  console.log(quote);
+
+  if (quote.text.length > 250) {
+    quoteText.classList.add("long-text");
+  } else {
+    quoteText.classList.remove("long-text");
+  }
+  quoteText.textContent = quote.text;
+}
+
+async function getQuotes() {
+  const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
+  try {
+    const response = await fetch(apiUrl);
+    apiQuotes = await response.json();
+    newQuotes();
+  } catch (error) {}
+}
+
+// Call function
+getQuotes();
