@@ -12,16 +12,28 @@ const quoteText = document.getElementById("quote");
 const authorText = document.getElementById("author");
 const xTwitterButton = document.getElementById("x-twitter");
 const newQuoteButton = document.getElementById("new-quote");
+const loader = document.getElementById("loader");
 
 // API fetching of Quotes
 let apiQuotes = [];
 
+function showLoading() {
+  loader.hidden = false;
+  quoteContainer.hidden = true;
+}
+
+function hideLoading() {
+  loader.hidden = true;
+  quoteContainer.hidden = false;
+}
+
 function newQuotes() {
+  showLoading();
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
   !quote.author
     ? (authorText.textContent = "Unknown")
     : (authorText.textContent = quote.author);
-  console.log(quote);
+  // console.log(quote);
 
   if (quote.text.length > 250) {
     quoteText.classList.add("long-text");
@@ -29,9 +41,11 @@ function newQuotes() {
     quoteText.classList.remove("long-text");
   }
   quoteText.textContent = quote.text;
+  hideLoading();
 }
 
 async function getQuotes() {
+  showLoading();
   const apiUrl = "https://jacintodesign.github.io/quotes-api/data/quotes.json";
   try {
     const response = await fetch(apiUrl);
